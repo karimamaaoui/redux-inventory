@@ -1,0 +1,9 @@
+[master]
+master-node ansible_host=10.0.0.10
+
+[workers]
+worker-node01 ansible_host=10.0.0.11
+
+[all:vars]
+ansible_user=vagrant
+ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key

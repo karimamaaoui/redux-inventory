@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Test Docker installation
+      command: docker --version
+      register: docker_version
+
+    - name: Show Docker version
+      debug:
+        var: docker_version.stdout
+
+    - name: Test Kubernetes installation
+      command: kubectl version --client
+      register: kubectl_version
+
+    - name: Show Kubernetes version
+      debug:
+        var: kubectl_version.stdout
+
+    - name: Check system info
+      command: uname -a
+      register: system_info
+
+    - name: Show system info
+      debug:
+        var: system_info.stdout
